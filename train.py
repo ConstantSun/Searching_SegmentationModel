@@ -36,20 +36,21 @@ best_test_iou_score = 0.
 # dir_img_test = '/DATA/hangd/cardi/RobustSegmentation/data_test/imgs/'
 # dir_mask_test = '/DATA/hangd/cardi/RobustSegmentation/data_test/masks/'
 
-# ailab
-dir_img =  "/data.local/all/hangd/dynamic_data/one32rd/imgs/"
-dir_mask = '/data.local/all/hangd/dynamic_data/one32rd/masks/'
+# # ailab
+# dir_img =  "/data.local/all/hangd/dynamic_data/one32rd/imgs/"
+# dir_mask = '/data.local/all/hangd/dynamic_data/one32rd/masks/'
 
-dir_img_test = '/data.local/all/hangd/src_code_3/Pytorch-UNet/data_test/imgs/'
-dir_mask_test = '/data.local/all/hangd/src_code_3/Pytorch-UNet/data_test/masks/'
+# dir_img_test = '/data.local/all/hangd/src_code_3/Pytorch-UNet/data_test/imgs/'
+# dir_mask_test = '/data.local/all/hangd/src_code_3/Pytorch-UNet/data_test/masks/'
+
+# Colab VNU
+dir_img =  "/content/n_135/data_train/imgs/"
+dir_mask = '/content/n_135/data_train/masks/'
+
+dir_img_test = '/content/n_135/data_test/imgs/'
+dir_mask_test = '/content/n_135/data_test/masks/'
 
 
-# dir_img_test = 'data_2/imgs/'
-# dir_mask_test = 'data_2/masks/'
-
-
-dir_img_draft = '/DATA/hangd/cardi/RobustSegmentation/data_draft/imgs/'
-dir_mask_draft ='/DATA/hangd/cardi/RobustSegmentation/data_draft/masks/'
 
 def train_net(params,
               dir_checkpoint,
