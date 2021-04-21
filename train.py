@@ -80,7 +80,7 @@ def train_net(params,
     _arch = _model.get(params["arch"])
     _encoder = params["encoder"]
 
-    logging.info(f"encoder_name : {_encoder} ")
+    logging.info(f'encoder_name : {_encoder} ')
     net = _arch(encoder_name=str(_encoder), classes=1 )
     net.to(device=device)
 
@@ -138,7 +138,7 @@ def train_net(params,
                 mask_type = torch.float32 if n_classes == 1 else torch.long
                 true_masks = true_masks.to(device=device, dtype=mask_type)
 
-                logging.info(f"images shape: {imgs.shape}")
+                logging.info(f'images shape: {imgs.shape}')
                 # print("imgs device: ", imgs.device)
                 # print("net device ", next(net.parameters()).device)
                 masks_pred = net(imgs)

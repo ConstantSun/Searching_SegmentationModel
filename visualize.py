@@ -57,7 +57,7 @@ def visualize_to_tensorboard(test_loader, val_loader, train_loader_un_shuffle, w
                 _var_y_pred = (_var_y_pred - _min) / (_max - _min) * 255
 
                 _y_true = y_true[inx]  # h,w
-                logging.info(f"_y_true  type: {type(_y_true)}, shape: {_y_true.shape}")
+                # logging.info(f"_y_true  type: {type(_y_true)}, shape: {_y_true.shape}")
                 _y_true = (_y_true > 0).float()
                 # logging.info(f"_y_true: {_y_true.shape} - {type(_y_true)}")
                 _y_true = _y_true.numpy()
@@ -66,7 +66,7 @@ def visualize_to_tensorboard(test_loader, val_loader, train_loader_un_shuffle, w
                 _bound_true = torch.tensor([_bound_true * red[i] for i in range(3)])  # c,h,w
 
                 mean_y_pred = mean_y_pred[inx]
-                logging.info(f"mean_y_pred type : {type(mean_y_pred)}, shape: {mean_y_pred.shape}")
+                # logging.info(f"mean_y_pred type : {type(mean_y_pred)}, shape: {mean_y_pred.shape}")
 
                 if isinstance(mean_y_pred, torch.Tensor):
                     mean_y_pred = (mean_y_pred > 0.5).float()

@@ -118,17 +118,17 @@ if __name__ == "__main__":
 
     net = UNet_MCdropout(n_channels=3, n_classes=1)
 
-    logging.info("Loading model {}".format(args.model))
+    logging.info('Loading model {}'.format(args.model))
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
     net.to(device=device)
     net.load_state_dict(torch.load(args.model, map_location=device))
 
-    logging.info("Model loaded !")
+    logging.info('Model loaded !')
 
     for i, fn in enumerate(in_files):
-        logging.info("\nPredicting image {} ...".format(fn))
+        logging.info('\nPredicting image {} ...'.format(fn))
 
         img = Image.open(fn)
 
@@ -137,14 +137,3 @@ if __name__ == "__main__":
                            scale_factor=args.scale,
                            out_threshold=args.mask_threshold,
                            device=device)
-        #
-        # if not args.no_save:
-        #     out_fn = out_files[i]
-        #     result = mask_to_image(mask)
-        #     result.save(out_files[i])
-        #
-        #     logging.info("Mask saved to {}".format(out_files[i]))
-        #
-        # if args.viz:
-        #     logging.info("Visualizing results for image {}, close to continue ...".format(fn))
-        #     plot_img_and_mask(img, mask)
