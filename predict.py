@@ -118,17 +118,17 @@ if __name__ == "__main__":
 
     net = UNet_MCdropout(n_channels=3, n_classes=1)
 
-    logging.info('Loading model {}'.format(args.model))
+    # #logging.info('Loading model {}'.format(args.model))
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logging.info(f'Using device {device}')
+    # #logging.info(f'Using device {device}')
     net.to(device=device)
     net.load_state_dict(torch.load(args.model, map_location=device))
 
-    logging.info('Model loaded !')
+    # #logging.info('Model loaded !')
 
     for i, fn in enumerate(in_files):
-        logging.info('\nPredicting image {} ...'.format(fn))
+        # #logging.info('\nPredicting image {} ...'.format(fn))
 
         img = Image.open(fn)
 

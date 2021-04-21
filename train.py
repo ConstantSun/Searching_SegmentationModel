@@ -80,7 +80,7 @@ def train_net(params,
     _arch = _model.get(params["arch"])
     _encoder = params["encoder"]
 
-    logging.info(f'encoder_name : {_encoder} ')
+    #logging.info(f'encoder_name : {_encoder} ')
     net = _arch(encoder_name=str(_encoder), classes=1 )
     net.to(device=device)
 
@@ -102,7 +102,7 @@ def train_net(params,
     writer = SummaryWriter(comment=f'_{net.__class__.__name__}_LR_{lr}_BS_{batch_size}_SCALE_{img_scale}')
     global_step = 0
 
-    logging.info(f'''Starting training:
+    #logging.info(f'''Starting training:
         Epochs:          {epochs}
         Batch size:      {batch_size}
         Learning rate:   {lr}
@@ -138,7 +138,7 @@ def train_net(params,
                 mask_type = torch.float32 if n_classes == 1 else torch.long
                 true_masks = true_masks.to(device=device, dtype=mask_type)
 
-                logging.info(f'images shape: {imgs.shape}')
+                #logging.info(f'images shape: {imgs.shape}')
                 # print("imgs device: ", imgs.device)
                 # print("net device ", next(net.parameters()).device)
                 masks_pred = net(imgs)
@@ -172,10 +172,10 @@ def train_net(params,
                     writer.add_scalar('learning_rate', optimizer.param_groups[0]['lr'], global_step)
 
                     if n_classes > 1:
-                        logging.info('Validation cross entropy: {}'.format(val_score))
+                        #logging.info('Validation cross entropy: {}'.format(val_score))
                         writer.add_scalar('Loss/val', val_score, global_step)
                     else:
-                        logging.info('Validation Dice Coeff: {}'.format(val_score))
+                        #logging.info('Validation Dice Coeff: {}'.format(val_score))
                         writer.add_scalar('Dice/val', val_score, global_step)
                         writer.add_scalar('IOU/val' , val_iou_score, global_step)
 
@@ -187,10 +187,10 @@ def train_net(params,
 
                     nni.report_intermediate_result(best_test_iou_score)
                     
-                    logging.info('Test Dice Coeff: {}'.format(test_score_dice))
+                    #logging.info('Test Dice Coeff: {}'.format(test_score_dice))
                     writer.add_scalar('Dice/test', test_score_dice, epoch)
 
-                    logging.info('Test IOU : {}'.format(test_score_iou))
+                    #logging.info('Test IOU : {}'.format(test_score_iou))
                     writer.add_scalar('IOU/test', test_score_iou, epoch)
 
 
@@ -202,12 +202,12 @@ def train_net(params,
         if save_cp:
             try:
                 os.mkdir(dir_checkpoint)
-                logging.info('Created checkpoint directory')
+                #logging.info('Created checkpoint directory')
             except OSError:
                 pass
             torch.save(net.state_dict(),
                        dir_checkpoint + f'CP_epoch{epoch + 1}.pth')
-            logging.info(f'Checkpoint {epoch + 1} saved !')
+            #logging.info(f'Checkpoint {epoch + 1} saved !')
     nni.report_final_result(best_test_iou_score)
     writer.close()
 
@@ -236,7 +236,7 @@ def get_args():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    logging.basicConfig(level=#logging.inFO, format='%(levelname)s: %(message)s')
     args = get_args()
     dir_ckp = "ckpt_test/"
     
@@ -245,7 +245,7 @@ if __name__ == '__main__':
     else: 
         _device = 'cpu'
     device = torch.device(_device)
-    logging.info(f'Using device {device}')
+    #logging.info(f'Using device {device}')
 
     # Change here to adapt to your data
     # n_channels=3 for RGB images
@@ -277,7 +277,7 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         torch.save(net.state_dict(), 'INTERRUPTED.pth')
-        logging.info('Saved interrupt')
+        #logging.info('Saved interrupt')
         try:
             sys.exit(0)
         except SystemExit:
