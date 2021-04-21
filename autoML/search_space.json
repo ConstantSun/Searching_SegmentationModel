@@ -1,0 +1,16 @@
+{
+    "batch_size": {"_type":"choice", "_value": [4, 8]},
+    "lr":{"_type":"choice","_value":[0.0001, 0.00001]},
+    "encoder": {"_type": "choice", "_value":[    "timm-regnety_008", "timm-regnety_016", "timm-regnety_032", "timm-regnety_040",
+        "timm-regnety_064", "timm-regnety_080", "timm-regnety_120",
+        "resnet18", "resnet34", "resnet50", "resnext50_32x4d",
+    "resnext50_32x4d", "resnext101_32x4d", "resnext101_32x8d", "timm-resnest26d", 
+    "timm-resnest50d", "timm-resnest50d_4s2x40d", "timm-resnest50d_1s4x24d", "timm-regnetx_006",
+    "timm-regnetx_008" , "timm-regnetx_016", "timm-regnetx_032", 
+
+    "se_resnet50", "se_resnet101", "se_resnet152",
+    "efficientnet-b3", "efficientnet-b4", "efficientnet-b5",
+    "vgg13_bn", "vgg16", "vgg16_bn", "vgg19"
+     ]},
+    "arch": {"_type": "choice", "_value": ["PAN", "Unet","FPN", "Linknet",  "PSPNet"]}
+}

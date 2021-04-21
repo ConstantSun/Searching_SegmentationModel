@@ -1,0 +1,1 @@
+nnictl stop -p 8080
