@@ -72,7 +72,9 @@ def train_net(params,
         "PSPNet": smp.PSPNet, 
         "Linknet": smp.Linknet, 
         "PAN": smp.PAN,
-        "Unet": smp.Unet
+        "Unet": smp.Unet,
+        "DeepLabV3": smp.DeepLabV3,
+        "MAnet": smp.MAnet
     }
     _arch = _model.get(params["arch"])
     # _arch = smp.Linknet  #######

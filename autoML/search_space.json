@@ -1,5 +1,5 @@
 {
-    "batch_size": {"_type":"choice", "_value": [4, 8]},
+    "batch_size": {"_type":"choice", "_value": [4, 8, 16]},
     "lr":{"_type":"choice","_value":[0.0001, 0.00001]},
     "encoder": {"_type": "choice", "_value":[    "timm-regnety_008", "timm-regnety_016", "timm-regnety_032", "timm-regnety_040",
         "timm-regnety_064", "timm-regnety_080", "timm-regnety_120",
@@ -10,7 +10,9 @@
 
     "se_resnet50", "se_resnet101", "se_resnet152",
     "efficientnet-b3", "efficientnet-b4", "efficientnet-b5",
-    "vgg13_bn", "vgg16", "vgg16_bn", "vgg19"
+    "vgg13_bn", "vgg16", "vgg16_bn", "vgg19" , 
+    "densenet169" , "densenet201" , "densenet161" , "dpn68" , "dpn68b" , "dpn92" , "dpn98" , "vgg16" , 
+    "vgg16_bn" , "vgg19" , "vgg19_bn"
      ]},
-    "arch": {"_type": "choice", "_value": ["PAN", "Unet","FPN", "Linknet",  "PSPNet"]}
+    "arch": {"_type": "choice", "_value": ["PAN", "Unet","FPN", "Linknet",  "PSPNet", "DeepLabV3", "MAnet"]}
 }
