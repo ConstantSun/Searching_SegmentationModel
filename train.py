@@ -78,20 +78,13 @@ def train_net(params,
         "MAnet": smp.MAnet
     }
     _arch = _model.get(params["arch"])
-    # _arch = smp.Linknet  #######
-
-    # net = smp.model(encoder_model, classes=n_classes)
-    logging.info(f"arch : {_arch}")
     _encoder = params["encoder"]
-
-    # _encoder = "timm-efficientnet-b5" #######
 
     logging.info(f"encoder_name : {_encoder} ")
     net = _arch(encoder_name=str(_encoder), classes=1 )
     net.to(device=device)
 
     dataset = BasicDataset(dir_img, dir_mask, img_scale)
-    # data_test = BasicDataset(dir_img_draft, dir_mask_draft, img_scale)
     data_test = BasicDataset(dir_img_test, dir_mask_test, img_scale)
 
     n_val = int(len(dataset) * val_percent)
